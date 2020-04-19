@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 4fr 10fr;
 }
+
 .dialogsItems {
   padding: 10px;
 }
@@ -20,4 +21,8 @@
 
 .messages .message {
   color: white;
+}
+
+.newMessage {
+  margin-left: 10px;
 }
