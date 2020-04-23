@@ -14,6 +14,7 @@ let state = {
             { id: 1, message: 'Hi' },
             { id: 2, message: 'How is your name?' },
             { id: 3, message: 'Yo' },],
+        newMessageText: 'Enter text',
         dialogs: [
             { id: 1, name: 'Olya Vladimirova' },
             { id: 2, name: 'Yliya Hachaturian' },
@@ -40,4 +41,18 @@ export let updateNewPostText = (newText) => {
     renderEntireTree(state);
 };
 
+export let addMessage = () => {
+    let newMessage = {
+        id: 4,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    renderEntireTree(state);
+};
+
+export let updateNewMessageText = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
+    renderEntireTree(state);
+}
 export default state;
