@@ -10,10 +10,7 @@ let renderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
       <App state={state} 
-      addPost={store.addPost.bind(store)} 
-      addMessage={store.addMessage.bind(store)} 
-      updateNewPostText={store.updateNewPostText.bind(store)}
-      updateNewMessageText={store.updateNewMessageText.bind(store)} /> </BrowserRouter>, document.getElementById('root')
+      dispatch={store.dispatch.bind(store)} /> </BrowserRouter>, document.getElementById('root')
   );
 }
 
