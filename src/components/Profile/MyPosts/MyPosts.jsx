@@ -5,6 +5,7 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
 
   let postElements = props.posts.map(props => < Post id={props.id} message={props.message} like={props.likesCount} />);
+ 
   let newPostElement = React.createRef();
   
   let onAddPost = () => {
@@ -17,7 +18,7 @@ const MyPosts = (props) => {
 
   return (
     <div className={c.postsBlock}>
-      <h3>My postот</h3>
+      <h3>My posts</h3>
       <div>
         <div>
           <textarea cols="30" rows="2" ref={newPostElement} value={props.newPostText} onChange={onPostChange} />

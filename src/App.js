@@ -7,7 +7,7 @@ import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
-const App = (props) => {
+const App = () => {
   return (<BrowserRouter>
     <div className='app-wrapper'>
       <Header />

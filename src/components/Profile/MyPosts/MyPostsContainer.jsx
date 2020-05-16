@@ -11,10 +11,10 @@ const myStateToPost = (state) => {
 }
 const myDispatchToPost = (dispatch) => {
   return {
-    updateNewPostText: () => {
+    addPost: () => {
       dispatch(addPostActionCreator());
     },
-    addPost: (text) => {
+    updateNewPostText: (text) => {
       let action = updateNewPostTextActionCreator(text);
       dispatch(action);
     }

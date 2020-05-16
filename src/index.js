@@ -7,7 +7,7 @@ import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-let renderEntireTree = (state) => {
+
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
@@ -15,12 +15,6 @@ let renderEntireTree = (state) => {
       </Provider>
     </BrowserRouter>, document.getElementById('root')
   );
-}
 
-renderEntireTree();
-
-store.subscribe(() => {
-  renderEntireTree();
-});
 
 serviceWorker.unregister();
