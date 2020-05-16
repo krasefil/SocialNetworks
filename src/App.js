@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import {Route} from "react-router-dom";
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -8,7 +8,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 const App = () => {
-  return (<BrowserRouter>
+  return (
     <div className='app-wrapper'>
       <Header />
       <Navbar />
@@ -17,7 +17,7 @@ const App = () => {
         <Route path='/profile' render={() => <Profile />} />
       </div>
     </div>
-  </BrowserRouter>
+
   );
 }
 

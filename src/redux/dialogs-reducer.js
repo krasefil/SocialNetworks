@@ -1,12 +1,7 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
-    messages: [
-        { id: 1, message: 'Hi' },
-        { id: 2, message: 'How is your name?' },
-        { id: 3, message: 'Yo' },],
-    newMessageText: 'Enter text',
     dialogs: [
         { id: 1, name: 'Olya Vladimirova' },
         { id: 2, name: 'Yliya Hachaturian' },
@@ -14,29 +9,35 @@ let initialState = {
         { id: 4, name: 'Igor' },
         { id: 5, name: 'Evgeniy' },
         { id: 6, name: 'gopa gopovna' },],
+    newMessageText: '',
+    messages: [
+        { id: 1, message: 'Hi' },
+        { id: 2, message: 'How is your name?' },
+        { id: 3, message: 'Yo' },],
+
 };
 
 const dialogsReducer = (state = initialState, action) => {
-
     switch (action.type) {
-        case ADD_MESSAGE:
-            let newMessage = {
-                id: 4,
-                message: state.newMessageText,
+        case UPDATE_NEW_MESSAGE_BODY:
+            return {
+                ...state,
+                newMessageBody: action.body
             };
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newMessage;
-            return state;
+        case SEND_MESSAGE:
+            let body = state.newMessageBody;
+            return {
+                ...state,
+                newMessageBody: '',
+                messages: [...state.messages, {id: 6, message: body}]
+            };
         default:
             return state;
     }
 }
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
-
-export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text })
+export const sendMessageCreator = () => ({type: SEND_MESSAGE})
+export const updateNewMessageBodyCreator = (body) =>
+    ({type: UPDATE_NEW_MESSAGE_BODY, body: body})
 
 export default dialogsReducer;
